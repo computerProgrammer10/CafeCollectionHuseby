@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         menuOutlet.text = "Menu items:"
         if sortingMethod == 0{
             for i in 0..<items.count {
-                menuOutlet.text += "\n" + items[i] + ": $\(floor(100*prices[i])/100.00)"
+                menuOutlet.text += "\n" + items[i] + ": $\(round(100*prices[i])/100.00)"
             }
         }
         cartOutlet.text = ""
@@ -59,10 +59,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if let index = items.firstIndex(of: itemName){
                 var price = prices[index]*Double(quantity)
                 totalPrice += price
-                cartOutlet.text += "\n" + itemName + "(\(quantity)): $\(floor(100*price)/100.00)"
+                cartOutlet.text += "\n" + itemName + "(\(quantity)): $\(round(100*price)/100.00)"
             }
         }
-        cartOutlet.text = "Your cart: Costs $\(floor(100*totalPrice)/100.00)\n"+cartOutlet.text
+        cartOutlet.text = "Your cart: Costs $\(round(100*totalPrice)/100.00)\n"+cartOutlet.text
     }
     
     
